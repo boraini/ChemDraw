@@ -27,16 +27,16 @@ function getChemicalDatabase() {
           }
         }
       }
-      fetch("../db/solutes.json").then(response => response.json()).then(val => {preintegrate(val); resolve(val)}).catch(console.error);
+      fetch("db/solutes.json").then(response => response.json()).then(val => {preintegrate(val); resolve(val)}).catch(console.error);
     }
     function resolveStandards(resolve, reject) {
-      fetch("../db/standards.json").then(response => response.json()).then(resolve).catch(console.error);
+      fetch("db/standards.json").then(response => response.json()).then(resolve).catch(console.error);
     }
     function resolveReactions(resolve, reject) {
       function calculateKs(arr) {
         for (let r of arr) r.K = r.Backward > 0 ? r.Forward / r.Backward : 0;
       }
-      fetch("../db/reactions.json").then(response => response.json()).then(val => {calculateKs(val); resolve(val)}).catch(console.error);
+      fetch("db/reactions.json").then(response => response.json()).then(val => {calculateKs(val); resolve(val)}).catch(console.error);
     }
     Promise.all([new Promise(resolveSolutes), new Promise(resolveStandards), new Promise(resolveReactions)]).then(resolve).catch(reject);
   }
