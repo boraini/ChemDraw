@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>ChemDraw - Reactions from your Couch!</title>
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/icons.css">
+    <script type="module" src="js/app.js" charset="utf-8"></script>
+	</head>
+	<body>
+    <header>
+      <div class="logo"/>
+    </header>
+    <aside class="toolbox">
+			<section name="non scrollable panel">
+        <h1>Tools:</h1>
+        <form class="tools" id="tools">
+	  			<div class="number-with-unit">
+	  			  <input id="amount-species" type="number" size="10" max="10" step="0.01" value="0.01" title="species amount to add/remove per click"/><div>&nbsp;mol</div>
+	  			</div>
+					<div class="number-with-unit">
+	  			  <input id="amount-temperature" type="number" size="10" max="10" step="0.01" value="0.01" title="temperature amount to add/remove per click"/><div>&nbsp;°C</div>
+	  			</div>
+	  			<input class="tool-selection" type="radio" id="add-species" name="tool"/>
+          <label for="add-species" class="icon-add button" title="adds the specified amount of selected species into the clicked region."/>Add Species</label>
+  				<input class="tool-selection" type="radio" id="remove-species" name="tool"/>
+          <label for="remove-species" class="icon-remove button" title="removes the specified amount of selected species out of the clicked region.">Remove Species</label>
+  				<input class="tool-selection" type="radio" id="heat-source" name="tool"/>
+          <label for="heat-source" class="icon-heatsource button" title="warms up the clicked region.">Heat Source</label>
+	  			<input class="tool-selection" type="radio" id="heat-sink" name="tool"/>
+          <label for="heat-sink" class="icon-heatsink button" title="cools down the clicked region.">Heat Sink</label>
+        </form>
+        <h1>Available Species</h1>
+        <h2>Edit the JSON files in DB to remove them or to get others.</h2>
+			</section>
+			<section name="scrollable panel" class="scrollable">
+				<form class="tools" id="species"></ul>
+			</section>
+    </aside>
+		<aside class="probe" id="probe">
+		</aside>
+    <main id="gridContainer">
+      <canvas id="grid"></canvas>
+    </main>
+	</body>
+</html>

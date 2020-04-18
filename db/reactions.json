@@ -1,0 +1,11 @@
+[
+  {
+    "Equation":[
+      [-1, "Cu(II)", true, 1, 0],
+      [-2, "OH", true, 1, 0],
+      [1, "Cu(OH)2", false, 0, 1]
+    ],
+    "Forward": 5,
+    "Backward": 0
+  }
+]

@@ -1,0 +1,12 @@
+{
+  "CuSO4": {
+    "name": "Copper (II) Sulfate",
+    "symbol": "CuSO<sub>4</sub>",
+    "solutes": [["Cu(II)", 1], ["SO4", 1]]
+  },
+  "NaOH": {
+    "name": "Sodium Hydroxide",
+    "symbol": "NaOH",
+    "solutes": [["Na", 1], ["OH", 1]]
+  }
+}

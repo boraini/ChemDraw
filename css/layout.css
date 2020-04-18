@@ -1,0 +1,119 @@
+:root {
+  /*  Colors  */
+  --ui-darkest: hsl(0, 0%, 10%);
+  --ui-dark: hsl(0, 0%, 15%);
+  --ui-medium: hsl(0, 0%, 30%);
+  --ui-highlight: hsl(223, 100%, 50%);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  color: white;
+}
+
+body {
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "toolbox main probe";
+  grid-template-columns: 200px auto 200px;
+  grid-template-rows: [row1-start] 75px [row1-end row2-start] auto [row2-end];
+}
+
+header {
+  grid-area: header;
+  padding: 1rem;
+
+  background-color: var(--ui-medium);
+}
+
+header .left {
+  float: left;
+}
+
+header .right {
+  float: right;
+}
+
+aside {
+  padding: 1rem;
+  background-color: var(--ui-dark);
+}
+aside.toolbox {
+  display: flex;
+  grid-area: toolbox;
+  flex-direction: column;
+}
+aside.probe {
+  grid-area: probe;
+  background: none;
+  color: black;
+}
+
+main {
+  position: relative;
+  grid-area: main;
+
+  background-color: white;
+}
+
+#grid {
+  position: absolute;
+  display: block;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid black;
+  image-rendering: pixelated;
+}
+
+aside section {
+  padding: 0;
+  overflow: hidden;
+}
+aside section.scrollable {
+  overflow-y: scroll;
+}
+aside h1 {
+  font: inherit;
+  color: white;
+}
+aside h2 {
+  font: inherit;
+  color: grey;
+}
+
+.tools .number-with-unit {
+  display: flex;
+  margin: 0.2rem;
+  border: 0;
+  padding: 0;
+}
+.tools .number-with-unit input {
+  display: block;
+  margin: 0;
+  flex-grow: 1;
+}
+.tools input.tool-selection {
+  display: none;
+}
+.tools label.button {
+  display: block;
+  margin: 0.2rem;
+  border: 0px;
+  border-radius: 0.2rem;
+  padding: 0.3rem;
+  box-sizing: border-box;
+  text-align: center;
+  background-color: white;
+  color: black;
+}
+.tools input.tool-selection:checked + label.button {
+  background-color: var(--ui-highlight);
+  color: white;
+}
