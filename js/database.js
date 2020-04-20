@@ -34,7 +34,9 @@ function getChemicalDatabase() {
     }
     function resolveReactions(resolve, reject) {
       function calculateKs(arr) {
-        for (let r of arr) r.K = r.Backward > 0 ? r.Forward / r.Backward : 0;
+        for (let r of arr) {
+          r.K = r.Backward > 0 ? r.Forward / r.Backward : 0;
+        }
       }
       fetch("db/reactions.json").then(response => response.json()).then(val => {calculateKs(val); resolve(val)}).catch(console.error);
     }

@@ -26,6 +26,7 @@ body {
 }
 
 header {
+  position: relative;
   grid-area: header;
   padding: 1rem;
 
@@ -33,21 +34,41 @@ header {
 }
 
 header .left {
-  float: left;
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 header .right {
-  float: right;
+  position: absolute;
+  display: block;
+  right: 0;
+  bottom: 0;
+}
+
+header .title {
+  font-size: 60px;
+  vertical-align: middle;
+}
+
+header .title img {
+  height: 1em;
+  width: auto;
+  transform: translateY(10px);
 }
 
 aside {
-  padding: 1rem;
+  padding: 0.5rem;
   background-color: var(--ui-dark);
 }
 aside.toolbox {
   display: flex;
   grid-area: toolbox;
   flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 aside.probe {
   grid-area: probe;
@@ -70,11 +91,11 @@ main {
   transform: translate(-50%, -50%);
   border: 1px solid black;
   image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
 }
 
 aside section {
   padding: 0;
-  overflow: hidden;
 }
 aside section.scrollable {
   overflow-y: scroll;
@@ -87,7 +108,9 @@ aside h2 {
   font: inherit;
   color: grey;
 }
-
+aside ul {
+  padding-left: 1em;
+}
 .tools .number-with-unit {
   display: flex;
   margin: 0.2rem;

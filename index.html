@@ -11,14 +11,35 @@
 	</head>
 	<body>
     <header>
-      <div class="logo"/>
+      <div class="left title"><img src="logo.png" alt="logo" width="60" height="60"/>ChemDraw</div>
+			<div class="right">by Mert Bora İnevi, Chemistry 2 (5)</div>
     </header>
     <aside class="toolbox">
 			<section name="non scrollable panel">
-        <h1>Tools:</h1>
+				<h2>You may scroll this panel.</h2>
+				<h1>Simulation Options</h1>
+				<form class="tools" id="simulation">
+					<input class="tool-selection" id="diffuse" type="checkbox"/>
+					<label for="diffuse" class="button">Solute Diffusion</label>
+					<input class="tool-selection" id="diffuseTemperature" type="checkbox"/>
+					<label for="diffuseTemperature" class="button">Temperature Diffusion</label>
+					<input class="tool-selection" id="react" type="checkbox"/>
+					<label for="react" class="button">Reactions</label>
+				</form>
+				<h1>Display</h1>
+				<form class="tools" id="display">
+					<input class="tool-selection" id="beer" type="radio" name="display"/>
+					<label for="beer" class="button">Observed Color</label>
+					<input class="tool-selection" id="litmus" type="radio" name="display"/>
+					<label for="litmus" class="button">Litmus Color</label>
+					<input class="tool-selection" id="thermal" type="radio" name="display"/>
+					<label for="thermal" class="button">Thermal Map</label>
+				</form>
+        <h1>Tools</h1>
         <form class="tools" id="tools">
+					<h2>Hit <kbd>ENTER</kbd> after typing.</h2>
 	  			<div class="number-with-unit">
-	  			  <input id="amount-species" type="number" size="10" max="10" step="0.01" value="0.01" title="species amount to add/remove per click"/><div>&nbsp;mol</div>
+	  			  <input id="amount-species" type="number" size="10" max="10" step="0.0001" value="0.01" title="species amount to add/remove per click"/><div>&nbsp;mol/L</div>
 	  			</div>
 					<div class="number-with-unit">
 	  			  <input id="amount-temperature" type="number" size="10" max="10" step="0.01" value="0.01" title="temperature amount to add/remove per click"/><div>&nbsp;°C</div>
@@ -34,10 +55,12 @@
         </form>
         <h1>Available Species</h1>
         <h2>Edit the JSON files in DB to remove them or to get others.</h2>
+				<form class="tools" id="species"></form>
+				<h1>Available Reactions</h1>
+				<ul id="reactionList"></ul>
 			</section>
-			<section name="scrollable panel" class="scrollable">
-				<form class="tools" id="species"></ul>
-			</section>
+			<!--<section name="scrollable panel">
+			</section>-->
     </aside>
 		<aside class="probe" id="probe">
 		</aside>

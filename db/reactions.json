@@ -5,7 +5,10 @@
       [-2, "OH", true, 1, 0],
       [1, "Cu(OH)2", false, 0, 1]
     ],
-    "Forward": 5,
-    "Backward": 0
+    "Forward": 1E9,
+    "ForwardExp": 180000,
+    "Backward": 0,
+    "BackwardExp": 1,
+    "Enthalpy": 74400
   }
 ]
