@@ -8,7 +8,8 @@
 	<body>
     <h3>Note: This page isn't intended for use by the end user. There might be bugs.</h3>
     <h1>ChemDraw Development: Spectrum Tools</h1>
-    <h3>Color Preview</h3>
+    <h3 id="cp">Additive Color Preview</h3>
+    <h3 id="rf">Subtractive Color Preview</h3>
     <p>
       (sRGB) Enter r,g,b:
       <input id="r" type="number">
@@ -138,8 +139,32 @@
 
       function writeForm() {
         for (let [k, v] of forme) v.element.value = v.write(v.state);
+        preview();
       }
 
+      const cp = document.getElementById("cp");
+      const rf = document.getElementById("rf");
+
+      function preview() {
+        const rfrgb = xyz2rgb([1 - form.x.state, 1 - form.y.state, 1 - form.z.state]);
+        if ((form.r.state * 30 + form.g.state * 59 + form.b.state * 11) > 50)
+          cp.style.color = "black";
+        else
+          cp.style.color = "white";
+        cp.style.backgroundColor = "rgb(" +
+          Math.floor(form.r.state * 255) + "," +
+          Math.floor(form.g.state * 255) + "," +
+          Math.floor(form.b.state * 255) + ")";
+
+        if ((rfrgb[0] * 30 + rfrgb[1] * 59 + rfrgb[2] * 11) > 50)
+          rf.style.color = "black";
+        else
+          rf.style.color = "white";
+        rf.style.backgroundColor = "rgb(" +
+          Math.floor(rfrgb[0] * 255) + "," +
+          Math.floor(rfrgb[1] * 255) + "," +
+          Math.floor(rfrgb[2] * 255) + ")";
+      }
       function convxyz() {
         readForm();
         const rgb = xyz2rgb([form.x.state, form.y.state, form.z.state]);
